@@ -1,0 +1,42 @@
+@media (max-width: 768px) {
+
+    body {
+        display: block;
+    }
+
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+
+    .sidebar button {
+        width: 48%;
+        display: inline-block;
+    }
+
+    .main {
+        margin-left: 0;
+        width: 100%;
+        padding: 15px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    input, select {
+        width: 100%;
+        margin: 8px 0;
+    }
+
+    form button {
+        width: 100%;
+    }
+}

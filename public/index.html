@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Student Portal</h2>
+
+        <button onclick="showPage('dashboard')">Dashboard</button>
+        <button onclick="showPage('students')">Students</button>
+        <button onclick="showPage('attendance')">Attendance</button>
+        <button onclick="showPage('marks')">Marks</button>
+        <button onclick="showPage('reports')">Reports</button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+
+        <!-- Dashboard -->
+        <section id="dashboard" class="page active">
+            <h1>Dashboard</h1>
+            <p>Welcome to Student Management System</p>\n            <p class="database-status">Database: <strong id="databaseStatus">Connecting...</strong></p>
+
+            <div class="cards">
+                <div class="card">
+                    <h3>Total Students</h3>
+                    <h2 id="totalStudents">0</h2>
+                </div>
+
+                <div class="card">
+                    <h3>Present Today</h3>
+                    <h2 id="presentCount">0</h2>
+                </div>
+
+                <div class="card">
+                    <h3>Absent Today</h3>
+                    <h2 id="absentCount">0</h2>
+                </div>
+
+                <div class="card">
+                    <h3>Average Marks</h3>
+                    <h2 id="averageMarks">0%</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- Students -->
+        <section id="students" class="page">
+            <h1>Student Management</h1>
+
+            <form id="studentForm">
+                <input type="text" id="name" placeholder="Student Name" required>
+                <input type="text" id="roll" placeholder="Roll Number" required>
+                <input type="email" id="email" placeholder="Email" required>
+
+                <select id="branch" required>
+                    <option value="">Select Branch</option>
+                    <option value="CSE">CSE</option>
+                    <option value="ECE">ECE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="IT">IT</option>
+                    <option value="MECH">MECH</option>
+                </select>
+
+                <select id="year" required>
+                    <option value="">Select Year</option>
+                    <option value="1st Year">1st Year</option>
+                    <option value="2nd Year">2nd Year</option>
+                    <option value="3rd Year">3rd Year</option>
+                    <option value="4th Year">4th Year</option>
+                </select>
+
+                <button type="submit" id="studentSubmit">Add Student</button>
+            </form>
+
+            <input type="text" id="search" placeholder="Search by name or roll number">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Roll No</th>
+                        <th>Email</th>
+                        <th>Branch</th>
+                        <th>Year</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="studentList"></tbody>
+            </table>
+        </section>
+
+        <!-- Attendance -->
+        <section id="attendance" class="page">
+            <h1>Attendance Management</h1>
+
+            <form id="attendanceForm">
+                <select id="attendanceStudent" required>
+                    <option value="">Select Student</option>
+                </select>
+
+                <input type="date" id="attendanceDate" required>
+
+                <select id="attendanceStatus" required>
+                    <option value="">Select Status</option>
+                    <option value="Present">Present</option>
+                    <option value="Absent">Absent</option>
+                </select>
+
+                <button type="submit">Save Attendance</button>
+            </form>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="attendanceList"></tbody>
+            </table>
+        </section>
+
+        <!-- Marks -->
+        <section id="marks" class="page">
+            <h1>Marks Management</h1>
+
+            <form id="marksForm">
+                <select id="marksStudent" required>
+                    <option value="">Select Student</option>
+                </select>
+
+                <input type="text" id="subject" placeholder="Subject Name" required>
+
+                <input type="number" id="marksObtained"
+                    placeholder="Marks Obtained" min="0" max="100" required>
+
+                <button type="submit">Add Marks</button>
+            </form>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student</th>
+                        <th>Subject</th>
+                        <th>Marks</th>
+                        <th>Percentage</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody id="marksList"></tbody>
+            </table>
+        </section>
+
+        <!-- Reports -->
+        <section id="reports" class="page">
+            <h1>Student Reports</h1>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Roll Number</th>
+                        <th>Attendance</th>
+                        <th>Average Marks</th>
+                    </tr>
+                </thead>
+                <tbody id="reportList"></tbody>
+            </table>
+        </section>
+
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
